@@ -1,0 +1,31 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "agent-backend",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-11-27",
+  
+  // Durable Object
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "CHAT_ROOM",
+        "class_name": "ChatRoom"
+      }
+    ]
+  },
+
+  // Workers AI
+  "ai": {
+    "binding": "AI"
+  },
+
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["ChatRoom"]
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}

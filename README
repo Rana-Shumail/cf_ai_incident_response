@@ -1,0 +1,41 @@
+# cf_ai_incident_response
+
+An AI-powered Site Reliability Engineering (SRE) agent that collaborates with users in real-time to diagnose and resolve infrastructure incidents. Built on the Cloudflare Developer Platform.
+
+## 🚀 Live Demo
+**[Insert your .pages.dev link here]**
+
+## 🛠️ Architecture
+This project uses the "Edge-Native" stack to ensure low latency and stateful collaboration:
+* **LLM:** `Llama 3.3` running on **Workers AI** for intelligent analysis.
+* **Coordination:** **Cloudflare Workers** act as the entry point and router.
+* **State & Memory:** **Durable Objects** maintain the chat history and the live "Defcon" status (Normal vs Critical) across all connected users.
+* **Frontend:** A WebSocket-enabled UI hosted on **Cloudflare Pages**.
+
+## ✨ Features
+1.  **Real-time Chat:** Low-latency communication via WebSockets.
+2.  **Agentic Capabilities:** The AI can autonomously trigger UI changes.
+    * *Try it:* Tell the agent "The server is down!" and watch the dashboard turn red.
+3.  **State Management:** The incident status persists in the Durable Object.
+
+## 💻 How to Run Locally
+
+1.  **Clone the repository**
+    ```bash
+    git clone [https://github.com/Rana-Shumail/cf_ai_incident_response.git](https://github.com/Rana-Shumail/cf_ai_incident_response.git)
+    cd cf_ai_incident_response
+    ```
+
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Start the development server**
+    ```bash
+    npx wrangler dev
+    ```
+    The backend will start on `http://localhost:8787`.
+
+4.  **Run the Frontend**
+    Open `public/index.html` in your browser.
